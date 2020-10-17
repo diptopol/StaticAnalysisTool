@@ -8,5 +8,6 @@ import java.util.List;
 
 public interface BugChecker {
 
-    List<BugPattern> check(File projectDirectory, BugType bugType);
+    List<BugPattern> check(File projectDirectory);
+
 }
