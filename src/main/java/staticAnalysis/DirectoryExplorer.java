@@ -13,7 +13,6 @@ public class DirectoryExplorer {
     public DirectoryExplorer(BiFunction<String, File, Boolean> filter, BiConsumer<String, File> fileHandler) {
         this.filter = filter;
         this.fileHandler = fileHandler;
-
     }
 
     public void explore(File root) {
