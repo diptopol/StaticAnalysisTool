@@ -10,6 +10,14 @@ public class BugLocation {
         this.lineNumber = lineNumber;
     }
 
+    public String getFileName() {
+        return fileName;
+    }
+
+    public int getLineNumber() {
+        return lineNumber;
+    }
+
     @Override
     public String toString() {
         return "BugLocation{" +

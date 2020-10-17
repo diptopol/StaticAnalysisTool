@@ -1,8 +1,9 @@
 package staticAnalysis;
 
 import bugPattern.BugPattern;
-import bugPattern.BugType;
-import checker.*;
+import checker.EmptyControlFlowChecker;
+import checker.InadequateLoggingBugChecker;
+import checker.MissingEqualMethodBugChecker;
 
 import java.io.File;
 import java.util.ArrayList;
