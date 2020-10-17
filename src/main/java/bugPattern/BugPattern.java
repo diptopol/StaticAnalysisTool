@@ -17,4 +17,12 @@ public class BugPattern {
     public BugLocation getBugLocation() {
         return bugLocation;
     }
+
+    @Override
+    public String toString() {
+        return "BugPattern{" +
+                "bugType=" + bugType +
+                ", bugLocation=" + bugLocation +
+                '}';
+    }
 }

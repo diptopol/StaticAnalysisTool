@@ -18,8 +18,10 @@ public class Main {
 
         List<BugPattern> bugPatterns = bugChecker.check(projectDirectory, BugType.MISSING_EQUAL_METHOD);
 
+        bugPatterns.addAll(bugChecker.check(projectDirectory, BugType.EMPTY_CONTROL_FLOW));
+
         for (BugPattern bugPattern : bugPatterns) {
-            System.out.println(bugPattern.getBugLocation());
+            System.out.println(bugPattern);
         }
     }
 }
