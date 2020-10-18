@@ -1,4 +1,4 @@
-package util;
+package com.staticAnalysisTool.util;
 
 import com.github.javaparser.ast.Node;
 

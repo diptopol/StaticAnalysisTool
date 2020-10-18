@@ -1,14 +1,14 @@
-package checker;
+package com.staticAnalysisTool.checker;
 
-import bugPattern.BugLocation;
-import bugPattern.BugPattern;
-import bugPattern.BugType;
+import com.staticAnalysisTool.bugPattern.BugLocation;
+import com.staticAnalysisTool.bugPattern.BugPattern;
+import com.staticAnalysisTool.bugPattern.BugType;
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ast.NodeList;
 import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-import staticAnalysis.DirectoryExplorer;
-import util.Util;
+import com.staticAnalysisTool.util.DirectoryExplorer;
+import com.staticAnalysisTool.util.Util;
 
 import java.io.File;
 import java.io.IOException;

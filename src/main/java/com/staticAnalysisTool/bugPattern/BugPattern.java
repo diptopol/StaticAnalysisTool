@@ -1,4 +1,4 @@
-package bugPattern;
+package com.staticAnalysisTool.bugPattern;
 
 public class BugPattern {
 

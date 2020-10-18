@@ -1,4 +1,4 @@
-package staticAnalysis;
+package com.staticAnalysisTool.util;
 
 import java.io.File;
 import java.util.function.BiConsumer;

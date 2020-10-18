@@ -1,10 +1,10 @@
-package staticAnalysis;
+package com.staticAnalysisTool.init;
 
-import bugPattern.BugPattern;
-import bugPattern.BugType;
-import checker.EmptyControlFlowChecker;
-import checker.InadequateLoggingBugChecker;
-import checker.MissingEqualMethodBugChecker;
+import com.staticAnalysisTool.bugPattern.BugPattern;
+import com.staticAnalysisTool.bugPattern.BugType;
+import com.staticAnalysisTool.checker.EmptyControlFlowChecker;
+import com.staticAnalysisTool.checker.InadequateLoggingBugChecker;
+import com.staticAnalysisTool.checker.MissingEqualMethodBugChecker;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

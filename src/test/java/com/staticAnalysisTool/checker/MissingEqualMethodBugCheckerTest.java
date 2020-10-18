@@ -1,7 +1,7 @@
-package checker;
+package com.staticAnalysisTool.checker;
 
-import bugPattern.BugPattern;
-import bugPattern.BugType;
+import com.staticAnalysisTool.bugPattern.BugPattern;
+import com.staticAnalysisTool.bugPattern.BugType;
 import org.junit.Assert;
 import org.junit.Test;
 

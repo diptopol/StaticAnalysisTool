@@ -1,7 +1,6 @@
-package checker;
+package com.staticAnalysisTool.checker;
 
-import bugPattern.BugPattern;
-import bugPattern.BugType;
+import com.staticAnalysisTool.bugPattern.BugPattern;
 
 import java.io.File;
 import java.util.List;
