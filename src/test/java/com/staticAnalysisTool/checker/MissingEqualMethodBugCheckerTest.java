@@ -17,6 +17,13 @@ public class MissingEqualMethodBugCheckerTest {
 
         Assert.assertEquals(1, bugPatternList.size());
         Assert.assertEquals(BugType.MISSING_EQUAL_METHOD, bugPatternList.get(0).getBugType());
+    }
 
+    @Test
+    public void testValidEqualAndHashCodeMethod() {
+        List<BugPattern> bugPatternList = new MissingEqualMethodBugChecker()
+                .check(new File("testFileDirectory/MissingEqualMethodBugCheckFiles/ClassWithEqualAndHashCodeSample.java"));
+
+        Assert.assertEquals(0, bugPatternList.size());
     }
 }

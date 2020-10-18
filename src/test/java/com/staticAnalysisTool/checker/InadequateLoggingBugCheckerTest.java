@@ -11,6 +11,14 @@ import java.util.List;
 public class InadequateLoggingBugCheckerTest {
 
     @Test
+    public void testValidLogging() {
+        List<BugPattern> bugPatternList = new InadequateLoggingBugChecker()
+                .check(new File("testFileDirectory/InadequateLoggingBugCheckFiles/ValidLoggingSample.java"));
+
+        Assert.assertEquals(0, bugPatternList.size());
+    }
+
+    @Test
     public void testDuplicateLogging() {
         List<BugPattern> bugPatternList = new InadequateLoggingBugChecker()
                 .check(new File("testFileDirectory/InadequateLoggingBugCheckFiles/DuplicateLoggingSample.java"));
