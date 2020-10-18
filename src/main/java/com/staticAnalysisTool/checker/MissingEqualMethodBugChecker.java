@@ -10,6 +10,8 @@ import com.github.javaparser.ast.body.Parameter;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.staticAnalysisTool.util.DirectoryExplorer;
 import com.staticAnalysisTool.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 
 public class MissingEqualMethodBugChecker implements BugChecker {
+
+    private static Logger logger = LoggerFactory.getLogger(MissingEqualMethodBugChecker.class);
 
     @Override
     public List<BugPattern> check(File projectDirectory) {
@@ -57,8 +61,8 @@ public class MissingEqualMethodBugChecker implements BugChecker {
                             hashMapAndEqualMethodPosition.get("hashCode"))));
                 }
 
-            } catch (IOException e) {
-                throw new RuntimeException(e);
+            } catch (Exception e) {
+                logger.error(e.getMessage(), e);
             }
         }).explore(projectDirectory);
 

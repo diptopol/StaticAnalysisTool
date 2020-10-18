@@ -10,6 +10,8 @@ import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.staticAnalysisTool.util.DirectoryExplorer;
 import com.staticAnalysisTool.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +20,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class InadequateLoggingBugChecker implements BugChecker {
+
+    private static Logger logger = LoggerFactory.getLogger(InadequateLoggingBugChecker.class);
 
     @Override
     public List<BugPattern> check(File projectDirectory) {
@@ -91,7 +95,7 @@ public class InadequateLoggingBugChecker implements BugChecker {
                 }.visit(JavaParser.parse(file), bugPatterns);
 
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                logger.error(e.getMessage(), e);
             }
 
         }).explore(projectDirectory);

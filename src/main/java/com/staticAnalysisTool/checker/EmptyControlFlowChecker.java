@@ -9,6 +9,8 @@ import com.github.javaparser.ast.stmt.*;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 import com.staticAnalysisTool.util.DirectoryExplorer;
 import com.staticAnalysisTool.util.Util;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +19,8 @@ import java.util.List;
 
 @SuppressWarnings("unchecked")
 public class EmptyControlFlowChecker implements BugChecker {
+
+    private static Logger logger = LoggerFactory.getLogger(EmptyControlFlowChecker.class);
 
     @Override
     public List<BugPattern> check(File projectDirectory) {
@@ -182,7 +186,7 @@ public class EmptyControlFlowChecker implements BugChecker {
 
                 }.visit(JavaParser.parse(file), bugPatterns);
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                logger.error(e.getMessage(), e);
             }
         }).explore(projectDirectory);
 
