@@ -53,7 +53,8 @@ public class InadequateLoggingBugChecker implements BugChecker {
 
                                         if (logLevelMethodNameList.contains(methodName)) {
                                             if (methodCallExpr.getArguments().isEmpty()) {
-                                                //TODO: need to decide what to do
+                                                bugPatterns.add(new BugPattern(BugType.INADEQUATE_LOGGING_INFO,
+                                                        new BugLocation(file.getName(), Util.getLineNumber(methodCallExpr))));
                                             }
 
                                             if (methodCallExpr.getArguments().size() == 1 &&
@@ -75,7 +76,8 @@ public class InadequateLoggingBugChecker implements BugChecker {
                             for (String errorMessageList : errorMessageInLoggingList) {
                                 List<String> errorMessages = new ArrayList<>(Arrays.asList(errorMessageList.split(";")));
 
-                                if (errorMessages.containsAll(errorMessageListPerBlockStatement)) {
+                                if (!errorMessageListPerBlockStatement.isEmpty()
+                                        && errorMessages.containsAll(errorMessageListPerBlockStatement)) {
                                     duplicateLogExists = true;
                                     bugPatterns.add(new BugPattern(BugType.INADEQUATE_LOGGING_INFO, new BugLocation(file.getName(), Util.getLineNumber(catchClause))));
                                 }
