@@ -24,7 +24,7 @@ public class MissingEqualMethodBugChecker implements BugChecker {
     public List<BugPattern> check(File projectDirectory) {
         List<BugPattern> bugPatterns = new ArrayList<>();
 
-        new DirectoryExplorer((path, file) -> path.endsWith(".java"), (path, file) -> {
+        new DirectoryExplorer((path, file) -> path.endsWith(".java") || file.getName().endsWith(".java"), (path, file) -> {
             try {
                 Map<String, Integer> hashMapAndEqualMethodPosition = new HashMap<>();
 
