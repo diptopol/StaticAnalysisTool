@@ -5,12 +5,16 @@ import bugPattern.BugType;
 import checker.EmptyControlFlowChecker;
 import checker.InadequateLoggingBugChecker;
 import checker.MissingEqualMethodBugChecker;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
+
+    private static Logger logger = LoggerFactory.getLogger(Main.class);
 
     public static void main(String[] args) {
         File projectDirectory = new File("projectDirectory");
@@ -32,11 +36,12 @@ public class Main {
                 .filter(bugPattern -> BugType.EMPTY_CONTROL_FLOW.equals(bugPattern.getBugType()))
                 .count();
 
-        System.out.println("missingEqual:" + missingEqualMethodCount + ";inadequateLogging:" + inadequateLoggingCount
-                + ";emptyControlFlow:" + emptyControlFlowCount);
+        logger.info("Missing Equal Method Count: {}", missingEqualMethodCount);
+        logger.info("Inadequate Logging Count: {}", inadequateLoggingCount);
+        logger.info("Empty Control Flow Count: {}", emptyControlFlowCount);
 
         for (BugPattern bugPattern : bugPatterns) {
-            System.out.println(bugPattern);
+            logger.info("BugPattern: {}", bugPattern);
         }
     }
 }
