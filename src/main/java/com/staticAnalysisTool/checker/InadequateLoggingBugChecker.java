@@ -81,7 +81,7 @@ public class InadequateLoggingBugChecker implements BugChecker {
                                 List<String> errorMessages = new ArrayList<>(Arrays.asList(errorMessageList.split(";")));
 
                                 if (!errorMessageListPerBlockStatement.isEmpty()
-                                        && errorMessages.containsAll(errorMessageListPerBlockStatement)) {
+                                        && errorMessages.stream().anyMatch(errorMessageListPerBlockStatement::contains)) {
                                     duplicateLogExists = true;
                                     bugPatterns.add(new BugPattern(BugType.INADEQUATE_LOGGING_INFO, new BugLocation(file.getName(), Util.getLineNumber(catchClause))));
                                 }
